@@ -1,0 +1,91 @@
+10
+
+dir
+0
+https://prod.oreilly.com/external/authors/books/9781449303716/current/Chapters/03-Classification/code/data
+https://prod.oreilly.com
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+116dc4a9-b042-40dd-b87b-4fe04d0a746b
+
+easyham.df
+file
+
+
+
+add
+
+spam
+dir
+
+
+
+add
+
+spam_2
+dir
+
+
+
+add
+
+hard_ham
+dir
+
+
+
+add
+
+spam_df.csv
+file
+
+
+
+add
+
+hard_ham_2
+dir
+
+
+
+add
+
+easy_ham
+dir
+
+
+
+add
+
+easy_ham_2
+dir
+
+
+
+add
+
+easyham_df.csv
+file
+
+
+
+add
+
