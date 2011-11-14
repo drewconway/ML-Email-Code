@@ -54,8 +54,8 @@ Finally, we move from a binary classification task to ranking.  Using the same S
 
 ### Required R packages ###
 
- - ggplot2
- - tm
+ - [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html)
+ - [tm](http://cran.r-project.org/web/packages/tm/)
 
 ### Authors ###
 
