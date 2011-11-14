@@ -52,7 +52,7 @@ Finally, we move from a binary classification task to ranking.  Using the same S
  - Introduction to weight-schemes for ranking
  - Training and testing the ranker
 
-<hl>
+<hr>
 
 ### Required R packages ###
 
