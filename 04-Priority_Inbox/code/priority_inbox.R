@@ -4,7 +4,7 @@
 # Purpose:         Code for Chapter 4.  In this case study we will attempt to write a "priority
 #                   inbox" algorithm for ranking email by some measures of importance.  We will
 #                   define these measures based on a set of email features, which moves beyond
-#                   the simple work counts used in Chapter 3.
+#                   the simple word counts used in Chapter 3.
 # Data Used:       Email messages contained in ../../03-Classification/code/data/
 #                   source: http://spamassassin.apache.org/publiccorpus/
 # Packages Used:   tm, ggplot2
