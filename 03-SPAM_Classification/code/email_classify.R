@@ -113,7 +113,7 @@ classify.email <- function(path, training.df, prior = 0.5, c = 1e-6) {
 
 # Get all the SPAM-y email into a single vector
 spam.docs <- dir(spam.path)
-spam.docs <- spam.docs[which(spam.docs! = "cmds")]
+spam.docs <- spam.docs[which(spam.docs != "cmds")]
 all.spam <- sapply(spam.docs, function(p) get.msg(paste(spam.path,p,sep = "")))
 
 # Create a DocumentTermMatrix from that vector
@@ -150,7 +150,7 @@ easyham.df <- transform(easyham.df, density = easyham.density, occurrence = easy
 
 # Run classifer against HARD HAM
 hardham.docs <- dir(hardham.path)
-hardham.docs <- hardham.docs[which(hardham.docs! = "cmds")]
+hardham.docs <- hardham.docs[which(hardham.docs != "cmds")]
 
 hardham.spamtest <- sapply(hardham.docs, function(p) classify.email(paste(hardham.path,p,sep = ""), 
     training.df = spam.df))

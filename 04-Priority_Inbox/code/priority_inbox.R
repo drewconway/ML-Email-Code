@@ -23,7 +23,7 @@ library(tm)
 library(ggplot2)
 
 # Set the global paths
-data.path <- "../../03-Classification/code/data/"
+data.path <- "../../03-SPAM_Classification/code/data/"
 easyham.path <- paste(data.path,"easy_ham/", sep = "")
 
 # We define a set of function that will extract the data
@@ -70,7 +70,7 @@ get.msg <- function(msg.vec) {
 # Retuns the date a given email message was received
 get.date <- function(msg.vec) {
     date.grep <- grepl("^Date: ", msg.vec)
-    date.grep <- which(date.gre p== TRUE)
+    date.grep <- which(date.grep == TRUE)
     date <- msg.vec[date.grep[1]]
     date <- strsplit(date, "\\+|\\-|: ")[[1]][2]
     date <- gsub("^\\s+|\\s+$", "", date)
@@ -347,6 +347,9 @@ train.ranks.df <- data.frame(train.ranks.matrix, stringsAsFactors = FALSE)
 names(train.ranks.df) <- c("Message", "Date", "From", "Subj", "Rank", "Type")
 train.ranks.df$Rank <- as.numeric(train.ranks.df$Rank)
 
+# Set the priority threshold to the median of all ranks weights
+priority.threshold <- median(train.ranks.df$Rank)
+
 # Visualize the results to locate threshold
 threshold.plot <- ggplot(train.ranks.df, aes(x=Rank))+stat_density(aes(fill="darkred"))+
     geom_vline(xintercept=priority.threshold, linetype=2)+
@@ -354,9 +357,6 @@ threshold.plot <- ggplot(train.ranks.df, aes(x=Rank))+stat_density(aes(fill="dar
     theme_bw()
 ggsave(plot=threshold.plot, filename="../images/01_threshold_plot.pdf", height=4.7, width=7)
 
-
-# Set the priority threshold to the median of all ranks weights
-priority.threshold <- median(train.ranks.df$Rank)
 
 # Classify as priority, or not
 train.ranks.df$Priority <- ifelse(train.ranks.df$Rank >= priority.threshold, 1, 0)
