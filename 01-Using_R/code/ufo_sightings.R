@@ -50,8 +50,8 @@ names(ufo) <- c("DateOccurred", "DateReported" , "Location", "ShortDescription",
 # a row to ignore.  We will use the 'ifelse' function to construct a vector of
 # Booleans indicating the problem rows
 good.rows <- ifelse(nchar(ufo$DateOccurred) != 8 | nchar(ufo$DateReported) != 8,FALSE,TRUE)
-length(which(!good.rows))    # While 375 rows may seem like a lot, out of over 60K
-ufo <- ufo[good.rows,]         # it is only about 0.6% of the total number of records.
+length(which(!good.rows))    # While 731 rows may seem like a lot, out of over 60K
+ufo <- ufo[good.rows,]         # it is only about 1.2% of the total number of records.
 
 # Now we can convert the strings to Date objects and work with them properly
 ufo$DateOccurred <- as.Date(ufo$DateOccurred, format = "%Y%m%d")
@@ -84,7 +84,7 @@ location.matrix <- do.call(rbind, city.state)
 ufo <- transform(ufo, USCity = location.matrix[,1], USState = tolower(location.matrix[,2]), 
     stringsAsFactors = FALSE)
 
-# Next step, we will strip out non-US incients
+# Next step, we will strip out non-US incidents
 us.states <- c("ak","al","ar","az","ca","co","ct","de","fl","ga","hi","ia","id","il",
     "in","ks","ky","la","ma","md","me","mi","mn","mo","ms","mt","nc","nd","ne","nh",
     "nj","nm","nv","ny","oh","ok","or","pa","ri","sc","sd","tn","tx","ut","va","vt",
@@ -112,7 +112,7 @@ ufo.us <- subset(ufo.us, DateOccurred >= as.Date("1990-01-01"))
 
 # Let's look at the histogram now
 new.hist <- ggplot(ufo.us, aes(x = DateOccurred)) + geom_histogram() + scale_x_date(major = "50 years")
-ggsave(plot = quick.hist, filename = "../images/new_hist.pdf", height = 6, width = 8)
+ggsave(plot = new.hist, filename = "../images/new_hist.pdf", height = 6, width = 8)
 
 # Now that we have the data we want, let's look at some aggregations.  We will use
 # the 'ddply' funtion in the plyr package. But first, we create a column of just
