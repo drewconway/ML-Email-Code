@@ -28,7 +28,7 @@ library(ggplot2)    # We'll use ggplot2 for all of our visualizations
 # We also have to alter two defaults; first, we want the strings to not be converted to
 # factor types; and, this data has does not have header labels in the first row, so
 # we want to keep the first row as data.
-ufo < -read.delim("data/ufo/ufo_awesome.tsv", sep = "\t", stringsAsFactors = FALSE, header = FALSE, 
+ufo <- read.delim("data/ufo/ufo_awesome.tsv", sep = "\t", stringsAsFactors = FALSE, header = FALSE, 
     na.strings = "")
 # This is a large text file (75MB), so this may take a moment
 
