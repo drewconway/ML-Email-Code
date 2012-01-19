@@ -28,7 +28,7 @@ easyham.path <- paste(data.path,"easy_ham/", sep = "")
 
 # We define a set of function that will extract the data
 # for the feature set we have defined to rank email
-# impportance.  This includes the following: message
+# importance.  This includes the following: message
 # body, message source, message subject, and date the
 # message was sent.
 
